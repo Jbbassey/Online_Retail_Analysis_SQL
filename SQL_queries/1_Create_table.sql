@@ -1,0 +1,2 @@
+CREATE TABLE Orders
+CREATE TABLE Details
