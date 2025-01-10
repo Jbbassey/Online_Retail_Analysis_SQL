@@ -1,11 +1,16 @@
---joining the products_order table and the Customer_details
+-- Joining the Orders table and the Details table
 
-WITH customer_orders as (select orders."Order_ID", orders."Order_Date", orders."State", 
-					orders."City", "Category",
-		"Sub-Category", "Amount", "Quantity", "Payment Mode", "Profit"
-		from "orders"
-		join "Details" 
-		on orders."Order_ID" = "Details"."Order_ID"
+WITH customer_orders AS (
+    SELECT 
+        Order_ID, Order_Date,
+        State, City,
+        Category, Sub-Category,
+        Amount, Quantity,
+        Payment Mode, Profit
+    FROM orders
+    JOIN Details 
+    ON orders.Order_ID = Details.Order_ID
 )
-select *
-from customer_orders
+--displaying the joined tables
+SELECT *
+FROM customer_orders;

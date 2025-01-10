@@ -1,12 +1,37 @@
--- Total Quantity of products Ordered
+-- Total Quantity of products Ordered(Sub_category)
 
-with customer_orders as (select orders."Order_ID", "Order_Date", "State", "City", "Category",
-		"Sub-Category", "Amount", "Quantity", "Payment Mode", "Profit"
-		from orders
-		join  "Details" 
-		on orders."Order_ID" = "Details"."Order_ID"
+WITH customer_orders AS (
+    SELECT 
+        orders."Order_ID", "Order_Date", "State", 
+        "City", "Category", "Sub-Category", "Amount",
+        "Quantity", "Payment Mode", "Profit"
+	FROM orders
+	JOIN  "Details" 
+	ON orders."Order_ID" = "Details"."Order_ID"
 ) 
-select "Sub-Category", sum("Quantity") as Total_Quantity_ordered
-from customer_orders
-group by "Sub-Category"
-order by Total_Quantity_ordered desc
+SELECT 
+    "Sub-Category", 
+    sum("Quantity") as Total_Quantity_ordered
+FROM customer_orders
+GROUP BY "Sub-Category"
+ORDER BY Total_Quantity_ordered desc
+
+
+
+--Average Quantity of products Ordered(Category)
+
+WITH customer_orders AS (
+    SELECT 
+        orders."Order_ID", "Order_Date", "State", 
+        "City", "Category", "Sub-Category", "Amount",
+        "Quantity", "Payment Mode", "Profit"
+	FROM orders
+	JOIN  "Details" 
+	ON orders."Order_ID" = "Details"."Order_ID"
+) 
+SELECT 
+    "Category", 
+    AVG("Quantity") as Average_Quantity_ordered
+FROM customer_orders
+GROUP BY "Category"
+ORDER BY Average_Quantity_ordered desc

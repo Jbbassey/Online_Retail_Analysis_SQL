@@ -7,7 +7,7 @@ WITH customer_orders AS (
         "Quantity", "Payment Mode", "Profit"
     FROM orders
     JOIN "Details" 
-        ON orders."Order_ID" = "Details"."Order_ID"
+    ON orders."Order_ID" = "Details"."Order_ID"
 ),
 customer_orders_quarter AS (
     SELECT 
@@ -31,8 +31,7 @@ final_totals AS (
     GROUP BY "Category", EXTRACT(QUARTER FROM "Order_Date")
 )
 SELECT 
-    year_quarter,
-    "Category",
+    year_quarter, "Category",
     SUM(total_orders) AS total_orders
 FROM final_totals
 GROUP BY year_quarter, "Category"

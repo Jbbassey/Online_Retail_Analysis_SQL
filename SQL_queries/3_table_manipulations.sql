@@ -1,11 +1,12 @@
 --To check for missing values
 
 WITH customer_orders AS (
-    SELECT orders."Order_ID", orders."Order_Date", 
-           orders."State", orders."City", 
-           "Category", "Sub-Category", 
-           "Amount", "Quantity", 
-           "Payment Mode", "Profit"
+    SELECT
+        orders."Order_ID", orders."Order_Date", 
+        orders."State", orders."City", 
+        "Category", "Sub-Category", 
+        "Amount", "Quantity", 
+        "Payment Mode", "Profit"
     FROM "orders"
     JOIN "Details" 
     ON orders."Order_ID" = "Details"."Order_ID"
@@ -18,14 +19,17 @@ WHERE "Order_ID" IS NULL OR "Order_Date" IS NULL
    OR "Amount" IS NULL OR "Quantity" IS NULL 
    OR "Payment Mode" IS NULL OR "Profit" IS NULL;
 
-   
+
 
 
 --To check for duplicate values
 
 WITH customer_orders AS (
-    SELECT orders."Order_ID", orders."Order_Date", orders."State", orders."City", "Category",
-		"Sub-Category", "Amount", "Quantity", "Payment Mode", "Profit"
+    SELECT 
+        orders."Order_ID", orders."Order_Date",
+        orders."State", orders."City", "Category",
+		"Sub-Category", "Amount", "Quantity",
+        "Payment Mode", "Profit"
     FROM "orders"
     JOIN "Details" 
     ON orders."Order_ID" = "Details"."Order_ID"
