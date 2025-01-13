@@ -1,0 +1,16 @@
+ -- Top 10 Customers who spent the most amount of money
+ 
+WITH customer_orders AS (
+    SELECT 
+         Customer_Name, Amount
+	FROM Orders
+	JOIN Details 
+	ON orders.Order_ID = Details.Order_ID
+)
+SELECT 
+    DISTINCT(Customer_Name) as Customer_Name,
+    SUM(Amount) as total_amount_spent
+FROM customer_orders
+GROUP BY Customer_Name
+ORDER BY total_amount_spent desc
+LIMIT 10;

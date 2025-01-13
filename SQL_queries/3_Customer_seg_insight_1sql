@@ -1,0 +1,16 @@
+--Top 20 Customers with the highest orders
+
+WITH customer_orders AS (
+    SELECT 
+        Order_ID, Customer_Name
+    FROM orders
+    JOIN Details 
+    ON orders.Order_ID = Details.Order_ID
+)
+SELECT 
+    DISTINCT(Customer_Name) AS Customer_Name, 
+    COUNT(Order_ID) AS total_order
+FROM customer_orders
+GROUP BY Customer_Name
+ORDER BY total_order DESC
+LIMIT 20;
