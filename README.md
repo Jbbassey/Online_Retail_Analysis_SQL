@@ -351,7 +351,7 @@ HAVING ROUND(AVG("Quantity"), 0) > 5
 ORDER BY Category, Average_quantity_purchased desc
 LIMIT 25;
 ```
-![average_qty_and_profit.png](assets\average_qty_and_profit.png)
+![average_qty_and_profit.png](assets\Distribution_of_total_profit_made.png)
 *Bar chart showing average quantity purchased and total profit made by product category*
 
 **key insights:**
