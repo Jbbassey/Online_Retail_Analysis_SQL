@@ -352,7 +352,7 @@ HAVING ROUND(AVG("Quantity"), 0) > 5
 ORDER BY Category, Average_quantity_purchased desc
 LIMIT 25;
 ```
-![average_qty_and_profit.png](assets/Distribution_of_total_profit_made.png)
+![average_qty_and_profit.png](assets\Distribution_of_total_profit_made.png)
 *Bar chart showing average quantity purchased and total profit made by product category*
 
 **key insights:**
@@ -360,7 +360,7 @@ LIMIT 25;
  -   Distribution of Total Profit Made:
         The profit distribution shows a wide range, including negative values, indicating some transactions resulted in losses.
         Most profits are clustered around zero, with fewer high-profit entries.
-        ![Distribution_of_total_profit_made.png](assets\Distribution_of_total_profit_made.png)
+        ![Distribution_of_total_profit_made.png](assets/Distribution_of_total_profit_made.png)
 
   -  **Average Quantity Purchased Per Product Category:**
         Electronics has the highest average quantity purchased.
